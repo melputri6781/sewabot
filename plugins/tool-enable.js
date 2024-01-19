@@ -36,6 +36,7 @@ _*❏ ADMIN COMMAND*_
 
 _*❏ OWNER COMMAND*_
 
+⩽⩾ autosholat ${bot.sholat ? '*( ON )*' : '*( OFF )*'}
 ⩽⩾ autobackup ${bot.backup ? '*( ON )*' : '*( OFF )*'}
 ⩽⩾ autocleartmp ${bot.cleartmp ? '*( ON )*' : '*( OFF )*'}
 ⩽⩾ autoread ${bot.autoread ? '*( ON )*' : '*( OFF )*'}
@@ -101,6 +102,15 @@ case 'antifoto':
         }
       }
       chat.antiBot = isEnable
+      break
+case 'autosholat':
+      if (m.isGroup) {
+        if (!(isAdmin || isOwner)) {
+          global.dfail('admin', m, conn)
+          throw false
+        }
+      }
+      chat.autoSholat = isEnable
       break
 case 'antivideo':
       if (m.isGroup) {
